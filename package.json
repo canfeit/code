@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next",
     "start": "next build&&next start",
-    "export": "next build&&next export",
+    "export": "cross-env BASE_URL=/code/ next build&&next export",
     "build": "next build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,6 +22,7 @@
   "devDependencies": {
     "@zeit/next-css": "^1.0.1",
     "babel-plugin-import": "^1.12.0",
+    "cross-env": "^5.2.0",
     "null-loader": "^3.0.0"
   }
 }

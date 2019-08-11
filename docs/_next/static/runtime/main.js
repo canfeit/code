@@ -6313,7 +6313,7 @@ function connect(options) {
       error.name = err.name;
       error.stack = err.stack; // __NEXT_DIST_DIR is provided by webpack
 
-      (0, _sourceMapSupport.rewriteStacktrace)(error, "C:\\Users\\canfe\\Documents\\GitHub\\code\\.next");
+      (0, _sourceMapSupport.rewriteStacktrace)(error, "C:\\Users\\wangjh\\Documents\\GitHub\\code\\.next");
       return error;
     }
   };
