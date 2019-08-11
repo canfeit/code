@@ -2,7 +2,6 @@
 const withCss = require("@zeit/next-css");
 
 module.exports = withCss({
-  assetPrefix: process.env.BASE_URL || "",
   webpack: (config, { isServer }) => {
     if (isServer) {
       const antStyles = /antd\/.*?\/style\/css.*?/;
