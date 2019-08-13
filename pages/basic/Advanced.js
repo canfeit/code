@@ -2,7 +2,7 @@ import Layout from '../../layout';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 
 export default () => {
-    return <Layout cat='basic' id='Functions'>
+    return <Layout cat='basic' id='Advanced'>
         <SyntaxHighlighter language="typescript">
             {`//交叉类型，将多个类型合并为一个类型。 它包含了所有类型的特性，同时拥有了所有类型的成员。
 interface a {a:string;}

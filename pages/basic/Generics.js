@@ -2,7 +2,7 @@ import Layout from '../../layout';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 
 export default () => {
-    return <Layout cat='basic' id='Functions'>
+    return <Layout cat='basic' id='Generics'>
         <SyntaxHighlighter language="typescript">
             {`//泛型函数，使用类型变量T表示类型。
 function identity<T>(arg: T): T {}//<>中是类型参数，声明参数arg与返回值是相同的类型
