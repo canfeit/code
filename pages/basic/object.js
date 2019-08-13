@@ -11,7 +11,10 @@ let x: [string, number] = ['hi', 10];//元组声明：[元素类型,元素类型
 const arr = ['I', 'l', 4, '514'] as const;//只读元组
 //枚举,为一组数值赋予友好的名字
 enum Color {Red, Green, Blue}
-let c = Color.Green;//1
+let c:Color = Color.Green; // 1
+Color[c]; // "Green"
+//常量枚举,编译阶段会被删除,成员在使用的地方会被内联进来
+const enum Directions {Up,Down}
 `}
         </SyntaxHighlighter>
         <> 1</>

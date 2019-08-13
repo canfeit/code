@@ -66,6 +66,36 @@ export default ({ cat, id, children }) => {
                 <a>类</a>
               </Link>
             </Menu.Item>
+            <Menu.Item key="Advanced">
+              <Link href="/basic/Advanced">
+                <a>高级</a>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="Decorators">
+              <Link href="/basic/Decorators">
+                <a>装饰器</a>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="Functions">
+              <Link href="/basic/Functions">
+                <a>方法</a>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="Generics">
+              <Link href="/basic/Generics">
+                <a>泛型</a>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="Iterators">
+              <Link href="/basic/Iterators">
+                <a>迭代</a>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="Modules">
+              <Link href="/basic/Modules">
+                <a>模块</a>
+              </Link>
+            </Menu.Item>
           </SubMenu>
         </Menu>
       </Sider>
