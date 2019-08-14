@@ -39,10 +39,16 @@ fn main() {
       </SyntaxHighlighter></>
     <> Python使用缩进来组织代码块
       <SyntaxHighlighter language="python">
-        {`#!/usr/bin/python
+        {`#!/usr/bin/env python3
 # -*- coding: UTF-8 -*-
 # 以#开头的语句是注释，注释是给人看的，可以是任意内容，解释器会忽略掉注释。
-# 除注释外，每一行都是一个语句，当语句以冒号:结尾时，缩进的语句视为代码块 
+'''
+这里是多行注释
+最开始以#!开头的行注释告诉Linux/OS X系统让python3解释器来执行脚本
+第二个行注释表示告诉Python解释器按UTF-8编码读取代码
+通过编辑器保存源代码时也需要保存为UTF-8 without BOM编码
+除注释外，每一行都是一个语句，当语句以冒号:结尾时，缩进的语句视为代码块
+'''
 print "你好，世界";`}
       </SyntaxHighlighter></>
   </Layout>
