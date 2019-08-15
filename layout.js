@@ -11,7 +11,7 @@ const tagStyle = {
   position: "relative", top: "-20px", left: "-20px"
 }
 
-export default ({ cat, id, children }) => {
+export default ({ cat, id, title, children }) => {
   return [
     <Head key="head">
       <title>码四方——学好TypeScript/Rust/Kotlin/Python走四方</title>
@@ -46,9 +46,19 @@ export default ({ cat, id, children }) => {
                 <a>基本类型</a>
               </Link>
             </Menu.Item>
+            <Menu.Item key="Encoding">
+              <Link href="/basic/Encoding">
+                <a>字符与编码</a>
+              </Link>
+            </Menu.Item>
             <Menu.Item key="object">
               <Link href="/basic/object">
                 <a>对象类型</a>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="Advanced">
+              <Link href="/basic/Advanced">
+                <a>类型杂谈</a>
               </Link>
             </Menu.Item>
             <Menu.Item key="variable">
@@ -64,11 +74,6 @@ export default ({ cat, id, children }) => {
             <Menu.Item key="Classes">
               <Link href="/basic/Classes">
                 <a>类</a>
-              </Link>
-            </Menu.Item>
-            <Menu.Item key="Advanced">
-              <Link href="/basic/Advanced">
-                <a>高级</a>
               </Link>
             </Menu.Item>
             <Menu.Item key="Decorators">
@@ -116,6 +121,12 @@ export default ({ cat, id, children }) => {
           <Card.Grid style={gridStyle}>
             <Tag style={tagStyle}>Python</Tag>
             {children[3]}
+          </Card.Grid>
+          <Card.Grid style={{
+            width: '100%',
+          }}>
+            <h1>{title}</h1>
+            &nbsp;&nbsp;&nbsp;&nbsp;{children[4]}
           </Card.Grid>
         </Card>
       </Content>
