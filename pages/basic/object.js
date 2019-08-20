@@ -24,11 +24,23 @@ const enum Directions {Up,Down}
 len(classmates)#3,len()函数可以获得list元素的个数
 classmates[0]#'Michael',用索引来访问list中每一个位置的元素，索引是从0开始
 classmates[-1]#'Tracy',用-1做索引，直接获取最后一个元素
+#切片（Slice）操作符,适用于list tuple str
+classmates[:3] #取从索引0到索引3，但不包括索引3。即索引0，1，2
+classmates[-2:] #从倒数第二个元素取到最后（取后两个）
+classmates[::2]# 所有数，每2个取一个
 classmates.append('Adam')#往list中追加元素到末尾
 classmates.insert(0, 'Jack')#把元素插入到指定的位置，比如索引号为0的位置
 classmates.pop()#删除并获取list末尾的元素，用pop()方法：
 classmates.pop(1)#要删除并获取指定位置的元素，用pop(i)方法，其中i是索引位置：
 classmates[2] = 'Sarah'#替换已存在的元素
+#列表生成式，把要生成的元素放到前面，后面跟for循环
+[x * x for x in range(1, 11) if x % 2 == 0]#[4, 16, 36, 64, 100]
+#生成器：generator,如果列表元素可以按照某种算法推算出来，那我们可以在循环的过程中不断推算出后续的元素不必创建完整的list，从而节省大量的空间。
+(x * x for x in range(10))#只要把一个列表生成式的[]改成()，就创建了一个generator
+map(lambda x: x * x, [1, 2, 3])# lambda表示匿名函数，冒号前面的x表示函数参数。匿名函数只能有一个表达式，不用写return，返回值就是该表达式的结果。map将传入的函数依次作用到序列的每个元素，并把结果作为新的Iterator返回
+reduce(lambda x,y: x * y, [1, 2, 3])#reduce把结果继续和序列的下一个元素做累积计算
+#和map()不同的是，filter()把传入的函数依次作用于每个元素，然后根据返回值是True还是False决定保留还是丢弃该元素
+filter(lambda s: s and s.strip(), ['A', '', 'B'])#把一个序列中的空字符串删掉
 classmates = ('Michael', )#元组 tuple，不可变的list,如果可能用tuple代替list，只有1个元素的tuple定义时必须加一个逗号
 d = {'Michael': 95, 'Bob': 75, 'Tracy': 85}#dict全称dictionary，在其他语言中也称为map，使用键-值（key-value）存储
 d['Adam'] = 67#通过key获取或修改元素
@@ -39,8 +51,23 @@ d.pop('Bob')#pop(key)方法删除并返回一个元素
 set，无序不重复元素的集合，两个set可以做数学意义上的交集、并集等操作
 s = set([1, 2, 3])#要创建一个set，需要提供一个list作为输入集合
 s.add(4)#通过add(key)方法可以添加元素到set中，
-s.remove(4)#通过remove(key)方法可以删除元素：
-
+s.remove(4)#通过remove(key)方法可以删除元素
+#枚举
+from enum import Enum
+Month = Enum('Month', ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'))#Month类型的枚举类，可以直接使用Month.Jan来引用一个常量，默认从1开始计数
+#如果需要更精确地控制枚举类型，可以从Enum派生出自定义类
+from enum import Enum, unique
+@unique
+class Weekday(Enum):
+    Sun = 0 # Sun的value被设定为0
+    Mon = 1
+    Tue = 2
+    Wed = 3
+    Thu = 4
+    Fri = 5
+    Sat = 6
+Weekday.Tue.value#2
+Weekday(1)#Weekday.Mon
 `}
         </SyntaxHighlighter>
         <>

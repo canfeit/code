@@ -22,7 +22,7 @@ let search = { ...defaults, food: "rich" };//...展开操作符创建浅拷贝
         </SyntaxHighlighter>
         <>rs</>
         <>kt</>
-        <SyntaxHighlighter language="python">{`#变量名为字母、数字或_的组合，不能用数字开头，不建议使用非ASCII字符
+        <SyntaxHighlighter language="python">{`#变量名为字母、数字或_的组合，不能用数字开头，不建议使用非ASCII字符(不要使用中文、特殊字符)
 a = 1#变量a是一个整数
 a = 'ABC' # a变为字符串,同一个变量可以反复赋值，而且可以是不同类型的变量
 #常量，通常用全部大写的变量名表示常量，但事实上PI仍然是一个变量，Python根本没有任何机制保证PI不会被改变，所以，用全部大写的变量名表示常量只是一个习惯上的用法，如果你一定要改变变量PI的值，也没人能拦住你。
