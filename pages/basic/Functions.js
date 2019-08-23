@@ -13,12 +13,34 @@ function buildName(firstName: string, ...restOfName: string[]) {}
 `}
         </SyntaxHighlighter>
         <>rs</>
-        <>kt</>
+        <SyntaxHighlighter language="kotlin">
+            {`//使用fun关键字声明函数,必须声明参数和返回值类型。函数名使用lowerCamelCase而不是snake_case
+fun happyBirthday(name: String, age: Int): String {
+    return "Happy \${age}th birthday, $name!"
+}
+fun square(number: Int) = number * number//oneliner function
+fun square(number: Double) = number * number//Overloading
+fun countAndPrintArgs(vararg numbers: Int) {//vararg声明可变参数numbers，类型为IntArray，接收任意数量的参数
+    for (number in numbers) println(number)
+}
+countAndPrintArgs(*listOf(1, 2, 3).toIntArray())
+fun foo(number: Double,text: String = "Hello") { }//带默认值的可选参数，
+foo(text = "hi",number = 12)//调用时可选择命名部分或全部参数，调用时命名参数位置随意
+fun tricky(x: Int, numbers: MutableList<Int> = mutableListOf()) {//每次调用都会计算默认值
+    numbers.add(x)
+    println(numbers)
+}
+`}
+        </SyntaxHighlighter>
         <SyntaxHighlighter language="python">
             {`#在Python中，定义一个函数要使用def语句，依次写出函数名、括号、括号中的参数和冒号:，然后，在缩进块中编写函数体，函数的返回值用return语句返回。如果没有return语句，函数执行完毕后也会返回结果，只是结果为None。
-def f1(x,y=1,z=2):#自定义函数f1,y,z是默认参数,默认参数必须指向不变对象,默认参数的值在定义时确定，每次调用都指向同一个对象，对象的修改会导致所以函数默认参数值的变化
+def f1(x,y=1,z=2):#自定义函数f1,y,z是默认参数
     return x,y,z #在语法上，返回一个tuple可以省略括号，而多个变量可以同时接收一个tuple，按位置赋给对应的值，所以，Python的函数返回多值其实就是返回一个tuple
 x,y=f1(6,z=8)#函数调用，调用函数的时候，如果传入的参数数量不对会报TypeError的错误，参数类型不匹配的情况需要在函数内部自行处理
+def tricky(x, numbers=[]):#默认参数应指向不变对象,因为默认参数的值只在定义时计算确定，每次调用都指向同一个对象，对象的修改会导致所有函数默认参数值的变化
+    numbers.append(x)
+    return numbers
+tricky(1)#每次调用，返回值都会保留上次调用结果
 #可变参数
 def calc(*numbers):
     return numbers#参数numbers接收到的是一个tuple

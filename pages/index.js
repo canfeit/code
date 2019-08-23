@@ -8,7 +8,18 @@ export default () => {
         {`// hello.ts
 interface Person { name: string; }
 const greeter = (person: Person) =>${'`Hello ${person.name}`'};
-console.log(greeter({ name: "World" }));`}
+console.log(greeter({ name: "World" }));
+//多行优先，解析器会尽量将新行并入当前行，当且仅当符合ASI规则时才会将新行视为独立的语句。
+/*ASI规则
+continue,return,break,throw后自动插入分号
+++、--表达式作为行的开始，在行首自动插入分号
+新行以([/+-%*,.开始,自动与上一行合并，应注意必要时在该类语句前加分号
+*/
+1 + 2
++ 3//6，两行自动合并为一个表达式
+1 + 2 +
+3//6
+`}
       </SyntaxHighlighter>
       运行: ts-node hello.ts
         </>
@@ -28,14 +39,20 @@ fn main() {
       </SyntaxHighlighter></>
     <>
       <SyntaxHighlighter language="kotlin">
-        {`suspend fun main() = coroutineScope {
-  for (i in 0 until 10) {
-    launch {
-      delay(1000L - i * 10)
-      print("❤️$i ")
-    }
-  }
-}`}
+        {`/*
+*/
+//hello.kt
+fun main(args: Array<String>) {//入口，该函数有一个名为 args、类型为“字符串数组”的参数。args 会包含调用程序的命令行参数，类似于 Python 中的 sys.argv；如果程序并不需要接受命令行参数并且使用的是 Kotlin 1.3，那么可以省略该参数，函数体由花括号分隔——缩进在 Kotlin 中通常不重要1，但是为了肉眼可读性理应正确缩进代码。
+
+
+  println("Hello World!")
+}
+//单行优先，如果行合并是使代码正确解析的唯一方式，那么该行会自动与一到多个后续行相连
+1 + 2//3
++ 3//3
+1 + 2 +
+3//6
+`}
       </SyntaxHighlighter></>
     <> Python使用缩进来组织代码块
       <SyntaxHighlighter language="python">
@@ -49,7 +66,21 @@ fn main() {
 通过编辑器保存源代码时也需要保存为UTF-8 without BOM编码
 除注释外，每一行都是一个语句，当语句以冒号:结尾时，缩进的语句视为代码块
 '''
-print "你好，世界";`}
+print "你好，世界";
+#不存在自动合并
+1 + 2#3
++ 3#3
+1 + 2 +#错误
+3`}
       </SyntaxHighlighter></>
+      <SyntaxHighlighter>
+     {`Expression: 表达式，执行之后都会有一个值
+      function() {} // 函数表达式
+      1+1
+      Statement: 语句，每一个语句都会做些事情 一个程序经常是由一系列的语句组成的
+      function twice(x) { }// 函数声明
+      var foo = 1+1; // 赋值
+`}
+</SyntaxHighlighter>
   </Layout>
 }

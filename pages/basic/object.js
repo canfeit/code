@@ -18,7 +18,30 @@ const enum Directions {Up,Down}
 `}
         </SyntaxHighlighter>
         <> 1</>
-        <> 2</>
+        <SyntaxHighlighter language="kotlin">
+            {`//不可变集合
+val strings = listOf("Anne", "Karen", "Peter") // List<String>
+val map = mapOf("a" to 1, "b" to 2, "c" to 3)  // Map<String, Int>在python中叫dict
+val set = setOf("a", "b", "c")                 // Set<String></String>
+//可变集合
+val strings = mutableListOf("Anne", "Karen", "Peter")
+val map = mutableMapOf("a" to 1, "b" to 2, "c" to 3)
+val set = mutableSetOf("a", "b", "c")
+//空集合
+val noInts: List<Int> = listOf()//显式声明生成的集合类型，尖括号内的类型称为泛型类型参数
+val noStrings = listOf<String>()//或者将元素类型提供给构造集合的函数
+val emptyMap = mapOf<String, Int>()
+enum class ContentKind {//枚举类
+    TOPIC,
+    ARTICLE,
+    EXERCISE,
+    VIDEO,
+}
+ContentKind.TOPIC
+ContentKind.values()
+data class ContentDescriptor(val kind: ContentKind, val id: String) {}//数据类
+`}
+        </SyntaxHighlighter>
         <SyntaxHighlighter language="python">
             {`classmates = ['Michael', 123, 'Tracy']#list,可变的有序集合
 len(classmates)#3,len()函数可以获得list元素的个数
