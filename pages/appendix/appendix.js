@@ -1,4 +1,4 @@
-import Layout from '../layout';
+import Layout from '../../layout';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 export default () => {
   return <Layout id='appendix'>

@@ -32,7 +32,22 @@ type Tree<T> = {//使用类型别名在属性里引用自己
 `}
         </SyntaxHighlighter>
         <>rs</>
-        <>kt</>
+        <SyntaxHighlighter language="typescript">
+            {`//与python的None不同，Kotlin的null不是对象，只是一个关键字
+fun test(a: String, b: String?) {//?后缀声明变量可为空(默认不能为空)
+    // 此处不允许访问b的属性
+    if (b == null) {
+        // 此处不允许访问b的属性
+    } else {
+        // 此处可以访问b的属性
+        println(b.length)
+    }
+    println(b!!.length)//非空断言，声明b不为空。一旦为空会抛出运行时异常
+    println(b?.length)//b为空输出null否则输出b.length，简化if判断
+    println(a.length?:0)//等价于typescript的a.length||0
+}
+        `}
+        </SyntaxHighlighter>
         <>py</>
     </Layout>
 }
