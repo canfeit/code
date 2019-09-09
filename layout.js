@@ -124,6 +124,7 @@ export default ({ cat, id, title, children }) => {
           </Card.Grid>
           <Card.Grid style={{
             width: '100%',
+            // height: "400px"
           }}>
             <h1>{title}</h1>
             &nbsp;&nbsp;&nbsp;&nbsp;{children[4]}
